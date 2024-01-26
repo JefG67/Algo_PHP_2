@@ -10,3 +10,23 @@ Vous devrez appeler la fonction comme suit : afficherTableHTML($capitales); </br
 
 <h2>Résultat</h2>
 
+
+<?php
+
+$capitales = [ "France" => " Paris",
+                "Allemagne" => "Berlin",
+                "USA"=> "Washington",
+                "Italie"=>"Rome",
+
+];
+
+foreach ($capitales as $pays => $capitale) {
+    echo " Le pays $pays a pour capitale : $capitale";
+}
+
+function afficherTableHTML($capitales) {
+
+
+}
+
+echo afficherTableHTML($capitales);
