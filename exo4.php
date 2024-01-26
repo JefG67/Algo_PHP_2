@@ -14,3 +14,41 @@ $capitales = array ("France"=>"Paris","Allemagne"=>"Berlin",<br>
 
 <?php
 
+
+$capitales = [
+    "France" => "Paris",
+    "Allemagne" => "Berlin",
+    "USA" => "Washington",
+    "Italie" => "Rome",
+    "Espagne" => "Madrid"
+];
+
+
+
+function afficherTableHTML($capitales)
+{
+    asort($capitales);
+    $result = "<table border=1>
+                <thead>    
+                    <tr>
+                        <th>Pays</th>
+                        <th>Capitales</th>
+                        <th>Lien wiki</th>
+                    </tr>
+                </thead>
+                <tbody>";
+
+    foreach ($capitales as $pays => $capitale) {
+        $result .= "<tr>
+                        <td>" . mb_strtoupper($pays) . "</td>
+                        <td>$capitale</td>
+                        <td><a href='http://www.elan-formation.fr/accueil' target='_blank'>lien</a></td>
+                </tr>";
+    }
+
+    $result .= "</tbody></table>";
+    return $result;
+}
+
+echo afficherTableHTML($capitales);
+?>

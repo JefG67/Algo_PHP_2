@@ -21,8 +21,6 @@ $capitales = [
 
 ];
 
-foreach($capitales as $pays =>$capitale)
-    echo"$pays a pour capitale : $capitale<br>";
 
 function afficherTableHTML($capitales) {
     ksort($capitales);
@@ -35,17 +33,18 @@ function afficherTableHTML($capitales) {
                 </thead>
             <tbody>";
 
-}
+
 
 
 foreach ($capitales as $pays => $capitale) {
     $result .= "<tr>
-                    <td>.mb_strtoupper($pays)</td>
+                    <td>" . mb_strtoupper($pays) . "</td>
                     <td>$capitale</td>
                  </tr>";   
 }
 
 $result .= "</tbody></table>";
 return $result;
+}
 
 echo afficherTableHTML($capitales);
