@@ -11,3 +11,25 @@ afficherInput($nomsInput);<br>
 
 <?php
 
+$nomsInput = ["Nom","Prénom","Ville"];
+
+function afficherInput($nomsInput){
+    foreach ($nomsInput as $nomInput) {
+        echo "<label for= '$nomInput'>$nomInput </label></br>";
+        echo "<input type='text' name='$nomInput  id='$nomInput'/></br>";
+       
+         
+    }
+    
+}
+afficherInput($nomsInput);
+    
+    
+    
+    // label>Nom:</label>
+    // <input name="nom" id="nom" type="text" />
+ 
+    // <label>Votre âge :</label>
+    // <input name="age" id="age" type="number" />
+
+
