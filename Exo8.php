@@ -28,13 +28,25 @@ repeterImage($url,4);
 
 
 
-function repeterImage($url,$imagemax){
-        for ( $image=0; $image<4; $image++){
-    echo "$image";
+function repetersImage($url,$imagemax){     
+
+        for ( $image=0; $image<$imagemax; $image++){ //boucle for ([initialisation]; [condition]; [expression_finale]) instruction;
+            echo "<img src='$url'>";
     }
 }
 
-// terminer avec for et foreach
+repetersImage($url, 4);
 
 
 
+
+
+// function repeterImages($url,$imagemax){
+       
+//         foreach () {
+            
+//         }
+//     }
+
+// repeterImages($url,4)
+   

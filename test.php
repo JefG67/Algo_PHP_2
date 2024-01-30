@@ -1,11 +1,18 @@
-<label for="pet-select">Choose a pet:</label>
+<?php
 
-<select name="pets" id="pet-select">
-  <option value="">--Please choose an option--</option>
-  <option value="dog">Dog</option>
-  <option value="cat">Cat</option>
-  <option value="hamster">Hamster</option>
-  <option value="parrot">Parrot</option>
-  <option value="spider">Spider</option>
-  <option value="goldfish">Goldfish</option>
-</select>
+function afficherRadio($valeurs) {
+    foreach ($valeurs as $valeur) {
+        // Concaténation de l'ID pour le rendre unique pour chaque bouton radio
+        $idUnique = 'radio';
+        
+        echo "<label for='$idUnique'>$valeur</label>";
+        echo "<input type='radio' id='$idUnique' name='choix' value='$valeur'/>";
+    }
+}
+
+$nomsRadio = ["Monsieur", "Madame", "Mademoiselle"];
+
+// Appel de la fonction avec le tableau de valeurs
+afficherRadio($nomsRadio);
+
+?>
