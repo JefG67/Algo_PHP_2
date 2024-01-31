@@ -80,13 +80,11 @@ public function demarrer(){
 
 //Méthode accelerer véhicule
 public function accelerer($vitesse){
+    if(!$this->etat){
+            
     $this->vitesseActuelle = $vitesse + $this->vitesseActuelle;   
-    echo $this->vitesseActuelle;
-        if(!$this->etat){
-            $this->etat=true;
-        }
-
-
+    echo "il accelere de ". $this->vitesseActuelle;
+    }
 }
 
 //Méthode stopper véhicule
@@ -108,7 +106,7 @@ public function ralentir($vitesse) {
     if($this->vitesseActuelle>$vitesse)
     $this->vitesseActuelle = $this->vitesseActuelle - $vitesse ;
 
-    echo "Le vehicule ralentit de $this->vitesseActuelle";
+    echo "Le vehicule ralentit de " . $this->vitesseActuelle;
 
 
 }
