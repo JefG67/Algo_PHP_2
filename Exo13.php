@@ -20,7 +20,7 @@ class Voiture{
     private int $vitesseActuelle;
     private bool $etat;
 
-
+    // constructeur
 
 public function __construct(string $marque, string $model, int $nbPortes) {
     $this->marque = $marque;
@@ -30,6 +30,8 @@ public function __construct(string $marque, string $model, int $nbPortes) {
     $this->etat = false;
 }
 
+
+   //setter and getter
 private function getMarque() {
     return $this->marque;
 }
@@ -66,24 +68,26 @@ public function demarrer(){
     
     if(!$this->etat){
         $this->etat=true;
-        echo "La voiture démarre";
+        echo "La voiture ".$this->marque." ".$this->model." est démarré<br>";
 
     }
     else{
         echo "La voiture est deja démarré";
     }
-
-
 } 
     
    
 
 //Méthode accelerer véhicule
 public function accelerer($vitesse){
-    if(!$this->etat){
+    if($this->etat){
             
     $this->vitesseActuelle = $vitesse + $this->vitesseActuelle;   
-    echo "il accelere de ". $this->vitesseActuelle;
+    echo "La voiture " . $this->marque." ".$this->model." accelere de ".$this->vitesseActuelle." Km/h<br>"."La vitesse de la voiture". $this->marque . " " . $this->model." est de : ". $this->vitesseActuelle. " Km/h";
+    }
+    else{ 
+        
+        echo "La voiture " . $this->marque . " " . $this->model . " veut accélérer de " . $vitesse."<br>"."Pour accélerer, il faut démarrer la voiture ". $this->marque." ".$this->model;
     }
 }
 
@@ -91,10 +95,10 @@ public function accelerer($vitesse){
 public function stopper(){
     if($this->etat){
         $this->etat = false;
-        echo"elle eteint";
+        echo"La voiture " . $this->marque." ".$this->model." est stoppé ";
     }
     else {
-        echo"deja eteint";
+        echo"La voiture est deja stoppé";
     }
 
 
@@ -103,22 +107,34 @@ public function stopper(){
 //Méthode pour ralentir
 public function ralentir($vitesse) {
     
-    if($this->vitesseActuelle>$vitesse)
+    if($this->vitesseActuelle>$vitesse){
     $this->vitesseActuelle = $this->vitesseActuelle - $vitesse ;
 
-    echo "Le vehicule ralentit de " . $this->vitesseActuelle;
+    echo "La voiture ".$this->marque." ".$this->model." ralentit de " . $this->vitesseActuelle;
+    }
+    else {
+
+    }
+
+}
+
+
+
+
 
 
 }
 
+$v1 = new Voiture("Peugeot", "408",5);
+
+$v2 = new Voiture("citroën","C4",3);
 
 
 
 
-}
+// $v1->demarrer(); $v1->accelerer(60);
+echo "<br>";
+// $v1->stopper();
 
-$v1=new Voiture("opel","805",5);
-$v1->demarrer();
-$v1->stopper();
-$v1->accelerer(50);
-$v1->ralentir(30);
+echo "<br>";
+// $v1->ralentir(30);
