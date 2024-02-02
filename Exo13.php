@@ -12,129 +12,165 @@ Coder l’ensemble des méthodes, accesseurs et mutateurs de la classe tout en r
 
 <?php
 
-class Voiture{ 
+class Voiture {
     //attribut forcement en privée
     private string $marque;
     private string $model;
     private int $nbPortes;
     private int $vitesseActuelle;
-    private bool $etat;
+    private bool $isDemarree;
+    
 
     // constructeur
 
-public function __construct(string $marque, string $model, int $nbPortes) {
-    $this->marque = $marque;
-    $this->model = $model;
-    $this->nbPortes = $nbPortes;
-    $this->vitesseActuelle = 0;
-    $this->etat = false;
-}
-
-
-   //setter and getter
-private function getMarque() {
-    return $this->marque;
-}
-private function setMarque(string $marque){
-    $this->marque = $marque;
-}
-
-private function getModel() {
-    return $this ->model; 
-}
-
-private function setModel(string $model){
-    $this->model = $model;
-}
-
-private function getNbPortes(){
-    return $this->nbPortes;
-}
-
-private function setNbPortes(int $nbPortes){
-    $this-> nbPortes = $nbPortes;
-}
-
-private function getVitesseActuelle(){
-    return $this->vitesseActuelle;
-}
-
-private function setVitesseActuelle(int $vitesseActuelle){
-    $this->vitesseActuelle = $vitesseActuelle;
-}
-
-//Méthode demarrer véhicule
-public function demarrer(){
-    
-    if(!$this->etat){
-        $this->etat=true;
-        echo "La voiture ".$this->marque." ".$this->model." est démarré<br>";
-
+    public function __construct(string $marque, string $model, int $nbPortes) {
+        $this->marque = $marque;
+        $this->model = $model;
+        $this->nbPortes = $nbPortes;
+        $this->vitesseActuelle = 0;
+        $this->isDemarree = false;
     }
-    else{
-        echo "La voiture est deja démarré";
-    }
-} 
-    
-   
 
-//Méthode accelerer véhicule
-public function accelerer($vitesse){
-    if($this->etat){
-            
-    $this->vitesseActuelle = $vitesse + $this->vitesseActuelle;   
-    echo "La voiture " . $this->marque." ".$this->model." accelere de ".$this->vitesseActuelle." Km/h<br>"."La vitesse de la voiture". $this->marque . " " . $this->model." est de : ". $this->vitesseActuelle. " Km/h";
+
+    //setter and getter
+    public function getMarque() {
+        return $this->marque;
     }
-    else{ 
+    public function setMarque(string $marque){
+        $this->marque = $marque;
+    }
+
+    public function getModel() {
+        return $this ->model; 
+    }
+
+    public function setModel(string $model){
+        $this->model = $model;
+    }
+
+    public function getNbPortes(){
+        return $this->nbPortes;
+    }
+
+    public function setNbPortes(int $nbPortes){
+        $this->nbPortes = $nbPortes;
+    }
+
+    public function getVitesseActuelle(){
+        return $this->vitesseActuelle;
+    }
+
+    public function setVitesseActuelle(int $vitesseActuelle){
+        $this->vitesseActuelle = $vitesseActuelle;
+    }
+
+    //Méthode demarrer véhicule
+    public function demarrer(){
         
-        echo "La voiture " . $this->marque . " " . $this->model . " veut accélérer de " . $vitesse."<br>"."Pour accélerer, il faut démarrer la voiture ". $this->marque." ".$this->model;
-    }
-}
+        if(!$this->isDemarree){
+            $this->isDemarree=true;
+            echo "La voiture " . $this . " est démarrée<br>";
 
-//Méthode stopper véhicule
-public function stopper(){
-    if($this->etat){
-        $this->etat = false;
-        echo"La voiture " . $this->marque." ".$this->model." est stoppé ";
-    }
-    else {
-        echo"La voiture est deja stoppé";
-    }
-
-
-}
-
-//Méthode pour ralentir
-public function ralentir($vitesse) {
+        }
+        else{
+            echo "La voiture est deja démarrée";
+        }
+    } 
+        
     
-    if($this->vitesseActuelle>$vitesse){
-    $this->vitesseActuelle = $this->vitesseActuelle - $vitesse ;
 
-    echo "La voiture ".$this->marque." ".$this->model." ralentit de " . $this->vitesseActuelle;
+    //Méthode accelerer véhicule
+    public function accelerer($vitesse){
+        if($this->isDemarree){
+                    
+            // $this->vitesseActuelle = $vitesse + $this->vitesseActuelle;
+            $this->vitesseActuelle += $vitesse; // a += b   <=>   a = a + b   // accumulation
+            echo "La voiture " . $this ." accelere de ". $vitesse ." Km/h<br>"."La vitesse de la voiture ". $this ." est de : ". $this->vitesseActuelle. " Km/h<br>";
+        }
+        else{ 
+            
+            echo "La voiture " . $this  . " veut accélérer de " . $vitesse."<br>"."Pour accélerer, il faut démarrer la voiture ". $this . "<br>";
+        }
     }
-    else {
 
+    //Méthode stopper véhicule
+    public function stopper(){
+        if($this->isDemarree){
+            $this->isDemarree = false;
+            echo"La voiture " . $this ." est stoppé <br>";
+        }
+        else {
+            echo "La voiture est deja stoppé<br>";
+        }
+
+    }
+
+    //Méthode pour ralentir
+    public function ralentir($vitesse) {
+        
+        if ($this->vitesseActuelle >= $vitesse) {
+            // $this->vitesseActuelle = $this->vitesseActuelle - $vitesse;
+            $this->vitesseActuelle -= $vitesse;
+
+            echo "La voiture ".$this ." ralentit de " . $vitesse . "<br>";
+        }
+        else {
+            echo "La voiture ".$this ." veut ralentir de " . $vitesse . ", mais on ne peut pas ralentir si la nouvelle vitesse nous amène à une vitesse négative<br>";
+
+        }
+
+    }
+    public function afficherInfos()
+    {
+        echo "infos véhicule<br>".
+                  "**********************<br>". 
+
+                  "Nom et modéle du véhicule : " . $this . "<br>".
+
+                  // opérateur ternaire :   CONDITION ? SIVRAI : SINON
+                  "Le véhicule ".$this->marque." est " . ($this->isDemarree ? "démarré" : "éteint") ."<br>".
+
+                 " Nombre de portes : " . $this->nbPortes . "<br>".
+
+                  "Sa vitesse actuelle est de : " .$this->vitesseActuelle . " km/h<br>";
+        
+    }
+
+    public function afficherVitesse(){
+        echo "La vitesse de la voiture " . $this . " est de : " . $this->getVitesseActuelle() . " km/h<br>";
+    }
+
+
+
+    // magic method toString, moyen de renvoyer les propriété d'un objet par exemple
+    // __toString est une méthode magique
+    // elle ne doit pas être appelée directement, mais est appelée automatiquement quand PHP en a besoin
+    // elle doit renvoyer un string
+    // => le string retourné est comment l'objet doit être représenté sous forme de string
+    public function __toString()
+    {
+        return $this->marque . " " . $this->model; // . " est " . $this->isDemarree . "<br>";
     }
 
 }
 
 
-
-
-
-
-}
 
 $v1 = new Voiture("Peugeot", "408",5);
 
 $v2 = new Voiture("citroën","C4",3);
 
 
+// echo $v1->afficherInfos() . "<br>";
 
-
-// $v1->demarrer(); $v1->accelerer(60);
+$v1->demarrer();
+$v1->accelerer(50);
+$v2->demarrer();
+$v2->stopper();
+$v2->accelerer(20);
+$v1->afficherVitesse();
+$v2->afficherVitesse();
 echo "<br>";
-// $v1->stopper();
-
 echo "<br>";
-// $v1->ralentir(30);
+echo $v1->afficherInfos() . "<br>";
+echo $v2->afficherInfos() . "<br>";
