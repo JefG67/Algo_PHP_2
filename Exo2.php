@@ -12,7 +12,7 @@ Vous devrez appeler la fonction comme suit : afficherTableHTML($capitales); </br
 
 
 <?php
-
+// Tableau contenant les pays et leurs capitales
 $capitales = [ 
     "France" => "Paris",
     "Allemagne" => "Berlin",
@@ -21,9 +21,10 @@ $capitales = [
 
 ];
 
-
+// Fonction pour afficher le tableau des capitales
 function afficherTableHTML($capitales) {
-    ksort($capitales);
+    // fonction ksort Trier le tableau dans l'ordre  décroissant, selon la clé.
+    ksort($capitales);  
     $result = "<table border=1>
                 <thead>    
                     <tr>
@@ -35,15 +36,16 @@ function afficherTableHTML($capitales) {
 
 
 
-
+ // on cree une boucle dans le tableau pour récupérer chaque pays et sa capital
 foreach ($capitales as $pays => $capitale) {
     $result .= "<tr>
                     <td>" . mb_strtoupper($pays) . "</td>
                     <td>$capitale</td>
                  </tr>";   
 }
-
+// Fermeture du tableau 
 $result .= "</tbody></table>";
+
 return $result;
 }
 

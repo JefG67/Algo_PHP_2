@@ -6,4 +6,5 @@ dans un nouvel onglet (_blank)</p>
 <h2>Résultat</h2>
 
 
-<a href="https://elan-formation.fr/accueil" taget="_blank">lien</a>;
+<a href="https://elan-formation.fr/accueil" target="_blank">lien</a>;
+<!-- Permet d'afficher un lien et en utilisant _blank on l'ouvre dans un nouvel onglet --> 

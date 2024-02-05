@@ -14,7 +14,7 @@ $capitales = array ("France"=>"Paris","Allemagne"=>"Berlin",<br>
 
 <?php
 
-
+// Tableau contenant les pays et leurs capitales
 $capitales = [
     "France" => "Paris",
     "Allemagne" => "Berlin",
@@ -24,9 +24,9 @@ $capitales = [
 ];
 
 
-
+// Fonction pour afficher le tableau des capitales avec un lien "wiki"
 function afficherTableHTML($capitales)
-{
+{   // On utilise asort() pour trier le tableau dans l'ordre alphabétique 
     asort($capitales);
     $result = "<table border=1>
                 <thead>    
