@@ -26,7 +26,7 @@ $capitales = [
 
 // Fonction pour afficher le tableau des capitales avec un lien "wiki"
 function afficherTableHTML($capitales)
-{   // On utilise asort() pour trier le tableau dans l'ordre alphabétique 
+{   // On utilise asort() pour trier le tableau dans l'ordre alphabétique (sur les valeurs)
     asort($capitales);
     $result = "<table border=1>
                 <thead>    

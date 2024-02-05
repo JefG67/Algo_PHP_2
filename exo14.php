@@ -47,15 +47,15 @@ class Voiture {
 
     public function getInfos()
     {
-       echo "Nom et modéle du véhicule : " . $this->marque. " " . $this->model ."<br>";
+       return "Nom et modéle du véhicule : " . $this->marque. " " . $this->model ."<br>";
             
     }
 
 }
 
-class VoitureElec extends Voiture{  
+class VoitureElec extends Voiture{
     // Attribut supplémentaire spécifique à la classe VoitureElec
-        public int $autonomie;
+    private int $autonomie;
 
     // Constructeur de la classe VoitureElec
     public function __construct(string $marque, string $model, int $autonomie)
@@ -72,15 +72,14 @@ class VoitureElec extends Voiture{
     }
     public function setAutonomie(int $autonomie){
         $this->autonomie = $autonomie;
+    }
 
-
-}
-// Méthode pour obtenir les informations de la voiture électrique
+    // Méthode pour obtenir les informations de la voiture électrique
     public function getInfos()
     {
-        parent::getInfos();
-        echo "Autonomie du véhicule : " . $this->autonomie;
-}
+        return parent::getInfos()
+            . "Autonomie du véhicule : " . $this->autonomie;
+    }
 }
 
 

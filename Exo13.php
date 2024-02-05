@@ -132,7 +132,7 @@ class Voiture {
 
                  " Nombre de portes : " . $this->nbPortes . "<br>".
 
-                  "Sa vitesse actuelle est de : " .$this->vitesseActuelle . " km/h<br>";
+                  "Sa vitesse actuelle est de : " .$this->vitesseActuelle . " km/h<br><br>";
         
     }
 
@@ -172,5 +172,5 @@ $v1->afficherVitesse();
 $v2->afficherVitesse();
 echo "<br>";
 echo "<br>";
-echo $v1->afficherInfos() . "<br>";
-echo $v2->afficherInfos() . "<br>";
+$v1->afficherInfos();
+$v2->afficherInfos();

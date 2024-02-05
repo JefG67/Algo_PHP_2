@@ -23,7 +23,7 @@ $capitales = [
 
 // Fonction pour afficher le tableau des capitales
 function afficherTableHTML($capitales) {
-    // fonction ksort Trier le tableau dans l'ordre  décroissant, selon la clé.
+    // fonction ksort Trier le tableau dans l'ordre croissant, selon la clé. (k = key)
     ksort($capitales);  
     $result = "<table border=1>
                 <thead>    
