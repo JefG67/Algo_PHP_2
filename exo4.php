@@ -14,7 +14,7 @@ $capitales = array ("France"=>"Paris","Allemagne"=>"Berlin",<br>
 
 <?php
 
-// Tableau contenant les pays et leurs capitales
+// Tableau contenant les pays (key) et leurs capitales (valeur)
 $capitales = [
     "France" => "Paris",
     "Allemagne" => "Berlin",

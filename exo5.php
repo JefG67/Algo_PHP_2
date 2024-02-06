@@ -10,10 +10,11 @@ afficherInput($nomsInput);<br>
 
 
 <?php
-
+// Définition d'u tableau contenant les noms des entrés
 $nomsInput = ["Nom","Prénom","Ville"];
-
+// On cree une Fonction pour afficher les entrée
 function afficherInput($nomsInput){
+    //Utilisation du foreach fournit une façon simple de parcourir des tableaux. foreach ne fonctionne que pour les tableaux et les objets
     foreach ($nomsInput as $nomInput) {
         echo "<label for= '$nomInput'>$nomInput </label></br>";
         echo "<input type='text' name='$nomInput  id='$nomInput'/></br>";
@@ -26,10 +27,3 @@ afficherInput($nomsInput);
     
     
     
-    // label>Nom:</label>
-    // <input name="nom" id="nom" type="text" />
- 
-    // <label>Votre âge :</label>
-    // <input name="age" id="age" type="number" />
-
-
